@@ -1,16 +1,23 @@
 # README
 
-[![GitHub Super-Linter](https://github.com/vi-solutions/code-challenge/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
-
-* Development Environment Requirements
+## Development Environment Requirements
 - docker-compose
 
-* Database creation
-- rename `database-example.yml` to `database.yml`
+## Local Environment First Time Setup:
 
-* Database initialization
-`docker-compose up`
+### Initialize App
+- `docker-compose run --no-deps web rails new . --force --database=postgresql`
+### Create db:
+- `docker-compose run web rake db:create`
+### Run migrations:
+- `docker-compose run web rake db:migrate`
 
-* How to run the test suite
-  run `rspec` from root folder
+- Start App:
+- `docker-compose up`
+
+- Stop App
+- `docker-compose down`
+
+## How to run the test suite
+  - `docker-compose run -e "RAILS_ENV=test" web bundle exec rspec`
 
