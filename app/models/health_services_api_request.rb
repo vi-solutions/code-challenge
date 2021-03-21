@@ -1,0 +1,2 @@
+class HealthServicesApiRequest < ApplicationRecord
+end
