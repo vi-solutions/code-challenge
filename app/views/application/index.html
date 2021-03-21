@@ -6,9 +6,10 @@
     const params = {}
     validationFields.map(field => {
       const value = getElementByString(`#${field}`).value
-      const valid = value.length > 3
+      const valid = value.length > 3 && value.includes('.') && value.split('.')[1].length > 2 && value.includes(field === 'lat' ? '+' : '-')
       if (!valid) validationError = true
       params[field] = value
+      console.log(valid)
       getElementByString(`#${field}Error`).style.display = valid ? 'none' : 'block'
     })
     if (validationError) return
@@ -62,11 +63,11 @@
         <div class="col-sm-12">
           <form onsubmit="event.preventDefault(); return handleSubmit();">
             <label for="">Latitude</label>
-            <input id='lat' type="text" class="form-control">
-            <div id='latError' style="display: none;" class="text-danger mt-1 mb-2">Please fill in this field</div>
+            <input placeholder='eg. +48.8277' id='lat' type="text" class="form-control">
+            <div id='latError' style="display: none;" class="text-danger mt-1 mb-2">Please use a properly formatted latitude (eg. +48.8277) </div>
             <label for="">Longitude</label>
-            <input id='lng' type="text" class="form-control">
-            <div id='lngError' style="display: none;" class="text-danger mt-1 mb-2">Please fill in this field</div>
+            <input placeholder='eg. -123.711' id='lng' type="text" class="form-control">
+            <div id='lngError' style="display: none;" class="text-danger mt-1 mb-2">Please use a properly formatted longitude (eg. -123.711)</div>
             <input type="submit" class="btn btn-primary mt-4"></button>
             <div id='systemError' style="display: none;" class="text-danger mt-1 mb-2">System Error</div>
           </form>

@@ -4,7 +4,7 @@ module Api
   module V1
     class HealthServicesController < ApplicationController
       def area_name
-        render json: HealthServicesService.get_area_name(params, request.remote_ip)
+        render json: HealthServicesService.area_name(params, request.remote_ip)
       end
     end
   end

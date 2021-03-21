@@ -33,7 +33,7 @@ class HealthServicesService
     }
   end
 
-  def self.get_area_name(params = {}, ip_address)
+  def self.area_name(params = {}, ip_address)
     return nil if !params[:lat] || !params[:lng]
 
     req_resp = Faraday.get(OPENMAPS_URI, build_area_name_params(params))

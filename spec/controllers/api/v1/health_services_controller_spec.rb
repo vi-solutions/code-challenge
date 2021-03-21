@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::HealthServicesController do
-  describe 'GET #get_area_name' do
+  describe 'GET #area_name' do
     context 'when LAT and LNG parameters not within BC' do
       before do
         stub_request(:get, OPENMAPS_URI)
@@ -11,7 +11,7 @@ RSpec.describe Api::V1::HealthServicesController do
           .to_return(status: 200, body: {}.to_json)
       end
       it 'JSON body response contains LAT_LNG_NOT_WITHIN_BC' do
-        get 'get_area_name', params: { lat: '+90.0000', lng: '135.0000' } # geographic north pole
+        get 'area_name', params: { lat: '+90.0000', lng: '135.0000' } # geographic north pole
         json_resp = JSON.parse(response.body)
         expect(json_resp.keys).to match_array(['LAT_LNG_NOT_WITHIN_BC'])
       end
@@ -31,7 +31,7 @@ RSpec.describe Api::V1::HealthServicesController do
               ]
             }.to_json
           )
-        get 'get_area_name', params: { lat: '+48.8277', lng: '-123.711' } # cowichan
+        get 'area_name', params: { lat: '+48.8277', lng: '-123.711' } # cowichan
       end
 
       it 'respsonds with JSON body CMNTY_HLTH_SERV_AREA_NAME attribute and appropriate value' do
