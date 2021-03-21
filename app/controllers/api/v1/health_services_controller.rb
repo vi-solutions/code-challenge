@@ -1,5 +1,11 @@
-class Api::V1::HealthServicesController < ApplicationController
-  def get_area_name
-    render json: HealthServicesService.get_area_name(params, request.remote_ip)
+# frozen_string_literal: true
+
+module Api
+  module V1
+    class HealthServicesController < ApplicationController
+      def area_name
+        render json: HealthServicesService.get_area_name(params, request.remote_ip)
+      end
+    end
   end
 end

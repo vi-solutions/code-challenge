@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![GitHub Super-Linter](https://github.com/vi-solutions/code-challenge/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
+* Development Environment Requirements
+- docker-compose
 
 * Database creation
+- rename `database-example.yml` to `database.yml`
 
 * Database initialization
+`docker-compose up`
 
 * How to run the test suite
+  run `rspec` from root folder
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

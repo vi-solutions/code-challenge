@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateHealthServicesApiRequests < ActiveRecord::Migration[6.1]
   def change
     create_table :health_services_api_requests do |t|

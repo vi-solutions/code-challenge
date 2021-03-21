@@ -2,15 +2,15 @@ default: &default
   adapter: postgresql
   encoding: unicode
   host: db
-  username: postgres
+  username: code-challange
   password: password
   pool: 5
 
 development:
   <<: *default
-  database: myapp_development
+  database: code-challenge_development
 
 
 test:
   <<: *default
-  database: myapp_test
+  database: code-challenge_test

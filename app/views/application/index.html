@@ -23,7 +23,7 @@
     try {
       const lat = encodeURIComponent(params.lat)
       const lng = encodeURIComponent(params.lng)
-      const resp = await fetch(`/api/v1/health_services/get_area_name?lat=${lat}&lng=${lng}`, reqObj)
+      const resp = await fetch(`/api/v1/health_services/area_name?lat=${lat}&lng=${lng}`, reqObj)
       if (resp.status !== 200) {
         return getElementByString('#systemError').style.display = 'block'
       }
@@ -62,10 +62,10 @@
         <div class="col-sm-12">
           <form onsubmit="event.preventDefault(); return handleSubmit();">
             <label for="">Latitude</label>
-            <input id='lat' value="+48.8277" type="text" class="form-control">
+            <input id='lat' type="text" class="form-control">
             <div id='latError' style="display: none;" class="text-danger mt-1 mb-2">Please fill in this field</div>
             <label for="">Longitude</label>
-            <input id='lng' value="-123.711" type="text" class="form-control">
+            <input id='lng' type="text" class="form-control">
             <div id='lngError' style="display: none;" class="text-danger mt-1 mb-2">Please fill in this field</div>
             <input type="submit" class="btn btn-primary mt-4"></button>
             <div id='systemError' style="display: none;" class="text-danger mt-1 mb-2">System Error</div>

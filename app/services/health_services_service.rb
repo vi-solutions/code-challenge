@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'faraday'
 require 'json'
 require 'uri'
@@ -9,6 +11,7 @@ module Faraday
       arg
     end
   end
+
   module FlatParamsEncoder
     def self.escape(arg)
       arg
@@ -17,9 +20,8 @@ module Faraday
 end
 
 class HealthServicesService
-  def self.get_area_name(params={}, ip_address)
-  return nil if !params[:lat] || !params[:lng]
-    params = {
+  def self.build_area_name_params(params)
+    {
       service: 'WFS',
       version: '1.0.0',
       request: 'GetFeature',
@@ -27,11 +29,16 @@ class HealthServicesService
       srsname: 'EPSG:4326',
       cql_filter: "INTERSECTS(SHAPE,SRID=4326;POINT(#{params[:lng]}#{params[:lat]}))",
       propertyName: 'CMNTY_HLTH_SERV_AREA_CODE,CMNTY_HLTH_SERV_AREA_NAME',
-      outputFormat: 'application/json',
+      outputFormat: 'application/json'
     }
-    req_resp = Faraday.get(OPENMAPS_URI, params)
+  end
+
+  def self.get_area_name(params = {}, ip_address)
+    return nil if !params[:lat] || !params[:lng]
+
+    req_resp = Faraday.get(OPENMAPS_URI, build_area_name_params(params))
     body = JSON.parse req_resp.body
-    if body['features'] && body['features'].present?
+    if body['features']&.present?
       HealthServicesApiRequest.create(lat: params[:lat], lng: params[:lng], status: '200', ip_address: ip_address)
       body['features'][0]['properties']
     else
