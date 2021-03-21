@@ -18,6 +18,5 @@
 - Stop App
 - `docker-compose down`
 
-## How to run the test suite
-  - `docker-compose run -e "RAILS_ENV=test" web bundle exec rspec`
-
+## Run Test Suite
+- `docker-compose run -e "RAILS_ENV=test" web bundle exec rspec`
