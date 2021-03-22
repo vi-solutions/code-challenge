@@ -24,7 +24,8 @@ default: &default
 
 development:
   <<: *default
-  database: code_challenge
+  database: code_challenge_development
+  host: db
   username: postgres
   password: password
   # The specified database role being used to connect to postgres.
@@ -59,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: code_challenge_test
+  database: postgres
   username: postgres
   password: password
 
@@ -86,5 +87,5 @@ test:
 production:
   <<: *default
   database: code_challenge_production
-  username: postgres
+  username: code_challenge
   password: <%= ENV['CODE_CHALLENGE_DATABASE_PASSWORD'] %>

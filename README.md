@@ -17,16 +17,21 @@
 
 ## Local Environment Setup:
 
-### Initialize/Start App
-- `docker-compose up`
+- Build App
+`docker-compose build`
 
-### Run migrations:
-If you haven't run initial migrations or there are pending migrations run:
-- `docker-compose run web rake db:migrate`
+- Boot the App
+`docker-compose up`
 
+- In another terminal, run migrations:
+`docker-compose run web rake db:migrate`
+
+- App should now be available on `localhost:3000`
+
+### How to Stop App
 
 - Stop App
-- `docker-compose down`
+`docker-compose down`
 
 ## Run Test Suite
 - `docker-compose run -e "RAILS_ENV=test" web bundle exec rspec`
