@@ -4,6 +4,7 @@
 * Application Framework: Ruby on Rails
 * Database: Postgres
 * Ruby v2.5.5
+* CI/CD: Github Actions
 * Rails v6.1.3
 * Postgres v13.2
 * Docker
@@ -23,7 +24,7 @@
 - Boot the App
 `docker-compose up`
 
-- In another terminal, run migrations:
+- Once PostgreSQL has initialized, open another terminal and run migrations:
 `docker-compose run web rake db:migrate`
 
 - App should now be available on `localhost:3000`
@@ -42,3 +43,9 @@ To retrieve number of successful requests to the opengis api:
 In rails console run `HealthServicesControllerSpec.all.count`\
 OR\
 Run the query `SELECT COUNT(*) FROM "health_services_api_requests"`
+
+
+## CI/CD
+
+### Github Actions
+- Currently running rspec and rubocop
