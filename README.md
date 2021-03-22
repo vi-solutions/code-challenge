@@ -12,17 +12,13 @@
 ## Development Environment Requirements
 - docker-compose
 
-## Local Environment First Time Setup:
+## Local Environment Setup:
 
-### Initialize App
-- `docker-compose run --no-deps web rails new . --force --database=postgresql`
-### Create db:
-- `docker-compose run web rake db:create`
+### Initialize/Start App
+- `docker-compose up`
 ### Run migrations:
 - `docker-compose run web rake db:migrate`
 
-- Start App:
-- `docker-compose up`
 
 - Stop App
 - `docker-compose down`
