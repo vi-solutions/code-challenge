@@ -30,6 +30,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
+          POSTGRES_DB: postgres
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
