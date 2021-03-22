@@ -7,6 +7,8 @@
 * Rails v6.1.3
 * Postgres v13.2
 * Docker
+* Test Suite: RSpec
+* Linter: Rubocop
 
 
 ## Development Environment Requirements
@@ -16,7 +18,9 @@
 
 ### Initialize/Start App
 - `docker-compose up`
+
 ### Run migrations:
+If you haven't run initial migrations or there are pending migrations run:
 - `docker-compose run web rake db:migrate`
 
 

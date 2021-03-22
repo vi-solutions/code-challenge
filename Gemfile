@@ -40,6 +40,7 @@ group :development, :test do
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
   gem 'bundler-audit'
+  gem 'simplecov'
   gem 'brakeman'
 end
 
