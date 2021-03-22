@@ -14,6 +14,8 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Install postgres client
+        run: sudo apt-get install libpq-dev
       - run: bundle exec rake
       # - name: Install Rubocop
       #   run: gem install rubocop
@@ -36,9 +38,9 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-      - run: bundle exec rake
       - name: Install postgres client
         run: sudo apt-get install libpq-dev
+      - run: bundle exec rake
       # - name: Install dependencies
       #   run: |
       #     gem install bundler
