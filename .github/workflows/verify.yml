@@ -1,6 +1,7 @@
 env:
   RUBY_VERSION: 2.5.5
   POSTGRES_USER: postgres
+  POSTGRES_HOST: localhost
   POSTGRES_PASSWORD: password
 
 name: Rails tests
@@ -29,8 +30,11 @@ jobs:
         ports:
         - 5432:5432
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
+        POSTGRES_HOST: localhost
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: password
+        PGPORT: ${ { job.services.postgres.ports[5432] }} # get randomly assigned published port
+        RAILS_ENV: test
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
