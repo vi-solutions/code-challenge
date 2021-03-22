@@ -20,7 +20,12 @@ module Faraday
 end
 
 class HealthServicesService
+  def self.sanitize_params(params)
+    params.tr('^0-9|/.', '') # only captures digits and dot characters
+  end
+
   def self.build_area_name_params(params)
+    params = sanitize_params(params)
     {
       service: 'WFS',
       version: '1.0.0',
