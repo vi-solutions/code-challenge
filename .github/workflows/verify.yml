@@ -17,7 +17,7 @@ jobs:
       # - name: Install Rubocop
       #   run: gem install rubocop
       - name: Check code
-        run: rubocop
+        run: bundle exec rubocop
   rspec-test:
     name: RSpec
     needs: rubocop-test
@@ -46,4 +46,4 @@ jobs:
           bundler exec rails db:create RAILS_ENV=test
           bundler exec rails db:migrate RAILS_ENV=test
       - name: Run tests
-        run: rspec
+        run: bundle exec rspec
