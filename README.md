@@ -1,7 +1,7 @@
 # README
 
 ## Code Challenge App
-* Main application: Ruby on Rails
+* Application Framework: Ruby on Rails
 * Database: Postgres
 * Ruby v2.5.5
 * Rails v6.1.3
@@ -9,6 +9,7 @@
 * Docker
 * Test Suite: RSpec
 * Linter: Rubocop
+* Test Coverage: SimpleCov
 
 
 ## Development Environment Requirements
