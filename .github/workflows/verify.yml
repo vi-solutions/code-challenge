@@ -28,7 +28,7 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_DB: postgres_test
+          POSTGRES_DB: code_challenge_test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
     steps:
