@@ -35,13 +35,13 @@ gem 'bootstrap', '~> 5.0.0.beta2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'brakeman'
+  gem 'bundler-audit'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
-  gem 'bundler-audit'
   gem 'simplecov'
-  gem 'brakeman'
 end
 
 group :development do
